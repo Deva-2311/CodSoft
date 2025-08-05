@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Portfolio: Showcase of Dev Prasath's work, skills, and experience. View projects, download resume, and get in touch for opportunities.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Portfolio | Dev Prasath</title>
+  <!-- Google Fonts -->
+
+  <!--<link rel="stylesheet" href="ref.css"/>-->
+  <style>
+    :root {
+      --primary: #0b1c3d;
+      --secondary: #f9fafd;
+      --accent: #f39c12;
+      --text: #19202b;
+      --muted: #7c8893;
+      --border: #e5e8ee;
+      --shadow: 0 2px 12px rgba(32,64,128,0.06);
+      --radius: 12px;
+      --space-xs: 8px;
+      --space-sm: 18px;
+      --space-md: 36px;
+      --space-lg: 64px;
+      --max-width: 1200px;
+    }
+    html { box-sizing: border-box; }
+    *, *:before, *:after { box-sizing: inherit; }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      color: var(--text);
+      background: var(--secondary);
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+      font-size: 18px;
+      min-height: 100vh;
+    }
+    h1, h2, h3, h4, h5 {
+      font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+      color: var(--primary);
+      margin: 0 0 var(--space-sm) 0;
+      line-height: 1.2;
+    }
+    h1 { font-size: 3rem; letter-spacing: -.02em; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.3rem; }
+    h4, h5 { font-size: 1.1rem; }
+    p { margin: 0 0 var(--space-sm) 0; }
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    a:hover { color: var(--accent);}
+    .button, button, input[type="submit"] {
+      background: var(--accent);
+      color: #fff;
+      padding: var(--space-xs) var(--space-md);
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: background .2s, box-shadow .2s, transform .1s;
+      outline: none;
+      display: inline-block;
+    }
+    .button:hover, button:hover, input[type="submit"]:hover {
+      background: #cc840c;
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 4px 24px rgba(243,156,18,0.10);
+    }
+
+    /* Header & Navigation */
+    header {
+      background: #fff;
+      box-shadow: var(--shadow);
+      padding: 0;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .navbar {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-xs) var(--space-md);
+    }
+    .navbar-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-size: 1.6rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      letter-spacing: -.01em;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .navbar-logo img {
+      width: 36px; height: 36px;
+      vertical-align: middle;
+    }
+    nav {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .nav-menu {
+      display: flex;
+      gap: var(--space-md);
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 1rem;
+    }
+    .nav-item { position: relative;}
+    .nav-item > a, .nav-item > button {
+      color: var(--primary);
+      padding: var(--space-xs) var(--space-sm);
+      border: none;
+      background: none;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: var(--radius);
+      transition: background .15s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-item > a:hover, .nav-item > button:hover {
+      background: var(--secondary);
+      color: var(--accent);
+    }
+    .nav-item .button {
+      background: var(--accent);
+      color: #fff;
+      padding: var(--space-xs) var(--space-sm);
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: var(--radius);
+      margin-left: var(--space-xs);
+      box-shadow: none;
+    }
+    .nav-item .button:hover {
+      background: #cc840c;
+      color: #fff;
+      box-shadow: 0 2px 10px rgba(243,156,18,0.08);
+    }
+    /* Dropdown */
+    .dropdown {
+      position: absolute;
+      left: 0; top: 110%;
+      background: #fff;
+      min-width: 170px;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 18px rgba(32,64,128,.05);
+      display: none;
+      flex-direction: column;
+      z-index: 99;
+    }
+    .nav-item:focus-within .dropdown,
+    .nav-item:hover .dropdown {
+      display: flex;
+    }
+    .dropdown a {
+      color: var(--primary);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 500;
+      transition: background .1s;
+      white-space: nowrap;
+    }
+    .dropdown a:hover {
+      background: var(--secondary);
+      color: var(--accent);
+    }
+    /* Hamburger (mobile) */
+    .navbar-toggle {
+      display: none;
+      background: none;
+      border: none;
+      margin-left: var(--space-sm);
+      cursor: pointer;
+    }
+    .navbar-toggle img { width: 32px; height: 32px; }
+    /* Hero Section */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: var(--space-lg);
+      max-width: var(--max-width);
+      margin: var(--space-lg) auto var(--space-md) auto;
+      padding: 0 var(--space-md);
+    }
+    .hero-text {
+      max-width: 560px;
+    }
+    .hero-title {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: var(--space-sm);
+    }
+    .hero-subtitle {
+      color: var(--muted);
+      font-size: 1.3rem;
+      margin-bottom: var(--space-md);
+    }
+    .hero-cta {
+      display: flex;
+      gap: var(--space-sm);
+      margin-top: var(--space-xs);
+    }
+    .hero-img {
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      width: 100%;
+      max-width: 430px;
+      object-fit: cover;
+    }
+    /* Section Basics */
+    main > section {
+      max-width: var(--max-width);
+      margin: var(--space-lg) auto;
+      padding: 0 var(--space-md);
+    }
+    section {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: var(--space-lg) var(--space-md);
+    }
+    .section-title {
+      font-size: 2rem;
+      text-align: left;
+      color: var(--primary);
+      margin-bottom: var(--space-md);
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    /* About Section */
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-lg);
+      align-items: center;
+    }
+    .about-img-wrap {
+      flex: 0 0 220px;
+      text-align: center;
+    }
+    .about-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--secondary);
+      box-shadow: 0 4px 24px rgba(32,64,128,0.07);
+      margin-bottom: var(--space-xs);
+    }
+    .about-bio {
+      flex: 1;
+      min-width: 260px;
+    }
+    .about-social {
+      margin-top: var(--space-xs);
+      display: flex;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+    .about-social a img { width: 28px; height: 28px; }
+
+    /* Skills Section */
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: var(--space-md) var(--space-lg);
+      margin-top: var(--space-xs);
+    }
+    .skill-card {
+      background: var(--secondary);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 10px rgba(32,64,128,.04);
+      padding: var(--space-sm);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .skill-card img {
+      width: 36px; height: 36px; margin-bottom: 4px;
+    }
+    .skill-title {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 1.08rem;
+      margin-bottom: 2px;
+    }
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-xs);
+    }
+    .project-card {
+      background: var(--secondary);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 10px rgba(32,64,128,.05);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow .2s, transform .15s;
+    }
+    .project-card:hover {
+      box-shadow: 0 8px 32px rgba(32,64,128,0.14);
+      transform: translateY(-2px) scale(1.01);
+    }
+    .project-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--border);
+    }
+    .project-content {
+      padding: var(--space-sm);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-title {
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: var(--primary);
+      font-size: 1.11rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .project-desc {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: var(--space-xs);
+      flex: 1;
+    }
+    .project-links a {
+      font-size: .98rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-right: var(--space-xs);
+    }
+    /* Resume Section */
+    .resume-block {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      justify-content: flex-start;
+    }
+    .resume-icon {
+      width: 48px; height: 48px;
+    }
+    .resume-link, .resume-link:visited {
+      color: #fff;
+      background: var(--primary);
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-family: 'Montserrat', Arial, sans-serif;
+      text-decoration: none;
+      font-size: 1.12rem;
+      transition: background .15s;
+      margin-left: var(--space-xs);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .resume-link:hover { background: var(--accent); }
+    /* Process Section */
+    .process-steps {
+      display: flex;
+      gap: var(--space-lg);
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: var(--space-sm);
+    }
+    .process-step {
+      flex: 1 1 200px;
+      min-width: 180px;
+      background: var(--secondary);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 12px rgba(32,64,128,.03);
+      padding: var(--space-sm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: var(--space-xs);
+      gap: var(--space-xs);
+    }
+    .process-step img {
+      width: 36px; height: 36px;
+      margin-bottom: 2px;
+    }
+    .process-title {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.04rem;
+    }
+    /* Contact */
+    .contact-block {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-lg);
+      align-items: flex-start;
+      margin-top: var(--space-xs);
+    }
+    .contact-info {
+      flex: 1 1 220px;
+      min-width: 220px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-size: 1rem;
+      color: var(--text);
+    }
+    .contact-item img {
+      width: 24px; height: 24px;
+    }
+    .contact-form-wrap {
+      flex: 1 1 340px;
+      min-width: 320px;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .contact-form label {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--primary);
+    }
+    .contact-form input, .contact-form textarea {
+      padding: var(--space-xs) var(--space-sm);
+      font-size: 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--secondary);
+      font-family: 'Inter', Arial, sans-serif;
+      resize: vertical;
+    }
+    .contact-form textarea { min-height: 90px; }
+    .contact-form input[type="submit"] { width: fit-content; }
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: #fff;
+      padding: var(--space-md) 0 var(--space-sm) 0;
+      margin-top: var(--space-lg);
+      font-size: 1rem;
+      letter-spacing: .01em;
+    }
+    .footer-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      padding: 0 var(--space-md);
+    }
+    .footer-nav {
+      display: flex;
+      gap: var(--space-md);
+      align-items: center;
+      margin-top: var(--space-xs);
+    }
+    .footer-nav a { color: #fff!important; font-weight: 600; }
+    .footer-nav a:hover { color: var(--accent)!important; }
+    .footer-copy { color: #dee4f0; font-size: .99rem;}
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+        text-align: center;
+      }
+      .hero-text { margin: 0 auto; }
+    }
+    @media (max-width: 700px) {
+      h1 { font-size: 2.2rem; }
+      .hero { padding: 0 var(--space-xs);}
+      section { padding: var(--space-md) var(--space-xs);}
+      main > section { margin: var(--space-md) auto; }
+    }
+    @media (max-width: 600px) {
+      .navbar, .footer-content { flex-direction: column; align-items: flex-start;}
+      .navbar-logo { margin-bottom: var(--space-xs);}
+      .nav-menu {
+        flex-direction: column;
+        gap: var(--space-xs);
+        background: #fff;
+        width: 100vw;
+        position: absolute;
+        left: 0; top: 60px;
+        box-shadow: 0 8px 24px rgba(32,64,128,0.05);
+        padding: var(--space-sm) 0;
+        border-radius: 0 0 var(--radius) var(--radius);
+        display: none;
+      }
+      .nav-menu.active { display: flex;}
+      .navbar-toggle { display: block; }
+      .dropdown {
+        position: static;
+        min-width: 0;
+        box-shadow: none;
+        margin-left: var(--space-md);
+        display: none;
+      }
+      .nav-item.open > .dropdown, .nav-item:focus-within .dropdown {
+        display: flex;
+        flex-direction: column;
+      }
+      .about-content, .contact-block { flex-direction: column; gap: var(--space-md);}
+      .about-img-wrap { margin: 0 auto;}
+      .skills-list, .projects-grid, .testimonials, .blog-grid, .pricing-tiers, .team-grid { grid-template-columns: 1fr;}
+      .process-steps { flex-direction: column; gap: var(--space-md);}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <a href="#" class="navbar-logo">
+        Online Portofolio
+      </a>
+      <nav aria-label="Main navigation">
+        <button class="navbar-toggle" aria-label="Open menu" aria-expanded="false">
+          <img src="https://api.iconify.design/mdi:menu.svg?color=%23204080&width=32&height=32" alt="Menu" />
+        </button>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="#home">Home</a></li>
+          <li class="nav-item">
+            <button aria-haspopup="true" aria-expanded="false" tabindex="0">About <img src="https://api.iconify.design/mdi:chevron-down.svg?color=currentColor&width=18&height=18" alt="Expand" /></button>
+            <div class="dropdown">
+              <a href="#about">Bio</a>
+              <a href="#skills">Skills</a>
+
+            </div>
+          </li>
+          <li class="nav-item">
+            <button aria-haspopup="true" aria-expanded="false" tabindex="0">Portfolio <img src="https://api.iconify.design/mdi:chevron-down.svg?color=currentColor&width=18&height=18" alt="Expand" /></button>
+            <div class="dropdown">
+              <a href="#process">Process</a>
+              <a href="#project">Projects</a>
+            </div>
+          <li class="nav-item"><a href="#contact" class="button" style="margin:0;">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="home" style="background:linear-gradient(94deg,#eaf1fe 30%,#f8fafd 100%); box-shadow:none;">
+      <div class="hero-text">
+        <h1 class="hero-title">Hi, I'm Dev Prasath</h1>
+        <p class="hero-subtitle">A passionate <span style="color:var(--accent);font-weight:600;">Full Stack Developer</span> &amp; <span style="color:var(--accent);font-weight:600;">future Data Scientist</span> Creating beautiful, responsive websites with modern technologies</p>
+        <div class="hero-cta">
+        </div>
+      </div>
+      <img class="hero-img" src="C:\Users\Dell\Desktop\Deva\Internship\CodSoft\Web Development\Level 1\Task 1\Profile.jpg" alt="Designer at work on computer" />
+    </section>
+    <!-- About Section -->
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <div class="about-img-wrap">
+          <img class="about-img" src="C:\Users\Dell\Desktop\Deva\Internship\CodSoft\Web Development\Level 1\Task 1\Profile.jpg" alt="Dev Prasath Portrait" />
+        </div>
+        <div class="about-bio">
+          <p>Hello! I'm <strong>Dev Prasath</strong>, currently pursuing my bachelor degree in Computer Science and Engineering at K. Ramakrishnan College of Engineering,Tiruchirapalli,Tamilnadu,India. 
+            Passionate about full stack development, I specialize in creating intuitive and visually appealing user interfaces.</p>
+          <div class="about-social">
+            <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener">
+              <img src="https://api.iconify.design/mdi:linkedin.svg?color=%23204080&width=28&height=28" alt="LinkedIn" />
+            </a>
+            <a href="#" aria-label="GitHub" target="_blank" rel="noopener">
+              <img src="https://api.iconify.design/mdi:github.svg?color=%23204080&width=28&height=28" alt="GitHub" />
+            </a>
+            <a href="mailto:your@email.com" aria-label="Email">
+              <img src="https://api.iconify.design/mdi:email.svg?color=%23204080&width=28&height=28" alt="Email" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2 class="section-title">My Skills</h2>
+      <div class="skills-list">
+        <div class="skill-card">
+          <img src="https://api.iconify.design/mdi:palette.svg?color=%23f39c12&width=36&height=36" alt="UI Design" />
+          <div class="skill-title">UI Design</div>
+          <div class="skill-desc">Modern interfaces, color, typography, layout</div>
+        </div>
+        <div class="skill-card">
+          <img src="https://api.iconify.design/mdi:vector-square.svg?color=%23204080&width=36&height=36" alt="UX Research" />
+          <div class="skill-title">UX Research</div>
+          <div class="skill-desc">Wireframes, user flows, prototyping</div>
+        </div>
+        <div class="skill-card">
+          <img src="https://api.iconify.design/mdi:code-braces.svg?color=%23f39c12&width=36&height=36" alt="Frontend Development" />
+          <div class="skill-title">Frontend Development</div>
+          <div class="skill-desc">HTML, CSS, JavaScript</div>
+        </div>
+        <div class="skill-card">
+          <img src="https://api.iconify.design/mdi:tablet-dashboard.svg?color=%23204080&width=36&height=36" alt="Responsive Design" />
+          <div class="skill-title">Responsive Design</div>
+          <div class="skill-desc">Mobile-first, accessibility, cross-device</div>
+        </div>
+        <div class="skill-card">
+          <img src="https://api.iconify.design/mdi:brush.svg?color=%23f39c12&width=36&height=36" alt="Branding" />
+          <div class="skill-title">Branding</div>
+          <div class="skill-desc">Identity, logo, style guides</div>
+        </div>
+        <div class="skill-card">
+          <img src="https://api.iconify.design/mdi:lightbulb-on.svg?color=%23204080&width=36&height=36" alt="Creative Direction" />
+          <div class="skill-title">Creative Direction</div>
+          <div class="skill-desc">Strategy, leadership, ideation</div>
+        </div>
+      </div>
+    </section>
+        <!-- Projects Section -->
+        <section id="projects">
+          <h2 class="section-title">Featured Projects</h2>
+          <div class="projects-grid">
+            <div class="project-card">
+              <img class="project-img" src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800&h=600" alt="Finance Dashboard Project" />
+              <div class="project-content">
+                <div class="project-title">Finance Dashboard</div>
+                <div class="project-desc">A responsive platform for tracking budgets, expenses, and analytics. Custom UI with charts, filters, and dark mode.</div>
+                <div class="project-links">
+                  <a href="#" target="_blank">View Project</a>
+                </div>
+              </div>
+            </div>
+            <div class="project-card">
+              <img class="project-img" src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800&h=600" alt="E-commerce Storefront Project" />
+              <div class="project-content">
+                <div class="project-title">E-commerce Storefront</div>
+                <div class="project-desc">Designed and developed a seamless shopping experience with advanced filtering, product galleries, and secure checkout flows.</div>
+                <div class="project-links">
+                  <a href="#" target="_blank">View Project</a>
+                </div>
+              </div>
+            </div>
+            <div class="project-card">
+              <img class="project-img" src="https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=800&h=600" alt="Portfolio Website Project" />
+              <div class="project-content">
+                <div class="project-title">Portfolio Website</div>
+                <div class="project-desc">Personal portfolio built to showcase projects, resume. Fully responsive with sleek transitions.</div>
+                <div class="project-links">
+                  <a href="#" target="_blank">View Project</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+    <!-- Process Section -->
+    <section id="process">
+      <h2 class="section-title">My Creative Process</h2>
+      <div class="process-steps">
+        <div class="process-step">
+          <img src="https://api.iconify.design/mdi:account-search.svg?color=%23f39c12&width=36&height=36" alt="Discovery" />
+          <div class="process-title">1. Discovery</div>
+          <div>Understanding your needs, users, and market to define project goals.</div>
+        </div>
+        <div class="process-step">
+          <img src="https://api.iconify.design/mdi:lightbulb-group.svg?color=%23204080&width=36&height=36" alt="Ideation" />
+          <div class="process-title">2. Ideation</div>
+          <div>Brainstorming, wireframing, and outlining creative solutions together.</div>
+        </div>
+        <div class="process-step">
+          <img src="https://api.iconify.design/mdi:pen.svg?color=%23f39c12&width=36&height=36" alt="Design" />
+          <div class="process-title">3. Design</div>
+          <div>Building beautiful UIs and validating UX through prototyping.</div>
+        </div>
+        <div class="process-step">
+          <img src="https://api.iconify.design/mdi:code-tags.svg?color=%23204080&width=36&height=36" alt="Development" />
+          <div class="process-title">4. Development</div>
+          <div>Turning designs into code with best practices and mobile-first approach.</div>
+        </div>
+        <div class="process-step">
+          <img src="https://api.iconify.design/mdi:rocket-launch.svg?color=%23f39c12&width=36&height=36" alt="Launch" />
+          <div class="process-title">5. Launch & Support</div>
+          <div>Delivering, testing, and helping you scale with ongoing improvements.</div>
+        </div>
+      </div>
+    </section>
+    <!-- Resume Section -->
+    <section id="resume">
+      <h2 class="section-title">Resume</h2>
+      <div class="resume-block">
+        <img class="resume-icon" src="https://api.iconify.design/mdi:file-document.svg?color=%23204080&width=48&height=48" alt="Resume Icon" />
+        <div>
+          <p>Want to learn more about my experience and education? <br/>
+            <a href="resume.pdf" class="resume-link" download>
+              <img src="https://api.iconify.design/mdi:download.svg?color=white&width=22&height=22" alt="Download" />
+              Download Resume (PDF)
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2 class="section-title">Contact Me</h2>
+      <div class="contact-block">
+        <div class="contact-info">
+          <div class="contact-item">
+            <img src="https://api.iconify.design/mdi:email-outline.svg?color=%23204080&width=24&height=24" alt="Email Icon" />
+            <span>nottosayda2311@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <img src="https://api.iconify.design/mdi:phone-outline.svg?color=%23204080&width=24&height=24" alt="Phone Icon" />
+            <span>+91 93442 08430</span>
+          </div>
+          <div class="contact-item">
+            <img src="https://api.iconify.design/mdi:map-marker-outline.svg?color=%23204080&width=24&height=24" alt="Location Icon" />
+            <span>Tiruchirapalli</span>
+          </div>
+        </div>
+       <div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-copy">&copy; 2025 Dev Prasath &middot; Portfolio. All rights reserved.</div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+  <script>
+    // Mobile Navbar Toggle
+    const navToggle = document.querySelector('.navbar-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    navToggle.addEventListener('click', function () {
+      navMenu.classList.toggle('active');
+      navToggle.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+    });
+    // Dropdown (mobile)
+    document.querySelectorAll('.nav-item > button').forEach(function(btn){
+      btn.addEventListener('click', function(e){
+        const parent = btn.parentNode;
+        if(window.innerWidth <= 600){
+          e.preventDefault();
+          document.querySelectorAll('.nav-item').forEach(function(item){
+            if(item!==parent){item.classList.remove('open');}
+          });
+          parent.classList.toggle('open');
+        }
+      });
+    });
+    // Close nav on link click (mobile)
+    document.querySelectorAll('.nav-menu a').forEach(function(link){
+      link.addEventListener('click', function(){
+        if(window.innerWidth <= 600){
+          navMenu.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+          document.querySelectorAll('.nav-item').forEach(function(item){item.classList.remove('open');});
+        }
+      });
+    });
+    window.addEventListener('resize', function(){
+      if(window.innerWidth > 600){
+        navMenu.classList.remove('active');
+        document.querySelectorAll('.nav-item').forEach(function(item){item.classList.remove('open');});
+      }
+    });
+  </script>
+</body>
+</html>
