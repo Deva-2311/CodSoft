@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Enable Smooth Scroll -->
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  
+        /* Custom CSS for elements that need more specific styling */
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .mobile-menu {
+            transition: all 0.3s ease;
+        }
+</style>
+</head>
+<body class="font-sans text-gray-800">
+<!-- Navigation Bar -->
+<nav class="bg-white fixed w-full z-50 shadow-md">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      
+      <!-- Brand Name -->
+      <div class="flex items-center">
+        <span class="text-2xl font-bold text-blue-600">Brand</span>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-8 items-center">
+        <a href="#home" class="text-gray-700 hover:text-blue-600">Home</a>
+        <a href="#features" class="text-gray-700 hover:text-blue-600">Features</a>
+        <a href="#pricing" class="text-gray-700 hover:text-blue-600">Pricing</a>
+        <a href="#testimonials" class="text-gray-700 hover:text-blue-600">Testimonials</a>
+        <a href="#contact" class="text-gray-700 hover:text-blue-600">Contact</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden flex items-center">
+        <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
+          <i class="fas fa-bars fa-lg"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu" class="md:hidden hidden bg-white shadow-md">
+    <a href="#home" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Home</a>
+    <a href="#features" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Features</a>
+    <a href="#pricing" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Pricing</a>
+    <a href="#testimonials" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Testimonials</a>
+    <a href="#contact" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Contact</a>
+  </div>
+</nav>
+
+<!-- JavaScript for Toggle -->
+<script>
+  const menuBtn = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  // Close menu after clicking a link (for mobile)
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+    });
+  });
+</script>
+<!-- Hero Section -->
+<section id="home" class="hero-gradient pt-32 pb-20 px-6 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
+      
+      <!-- Left Column -->
+      <div class="flex-1 text-center md:text-left">
+        <h1 class="text-4xl sm:text-5xl font-bold mb-4">
+          Welcome to <span class="text-yellow-300">Brand</span>
+        </h1>
+        <p class="mb-6 text-lg sm:text-xl">
+          Discover the features that make us the best choice for your needs.  
+          Fast, reliable, and built for you.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <a href="#features" class="bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-300 transition">
+            Get Started
+          </a>
+          <a href="#pricing" class="border border-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition">
+            Learn More
+          </a>
+        </div>
+      </div>
+  
+      <!-- Right Column (Image) -->
+      <div class="flex-1 mt-10 md:mt-0 flex justify-center">
+        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Hero Image" class="rounded-lg shadow-lg">
+      </div>
+  
+    </div>
+  </section>
+  <!-- Trusted By Section -->
+<section class="py-12 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Heading -->
+      <h2 class="text-center text-gray-600 text-lg font-semibold mb-8">
+        Trusted by leading companies worldwide
+      </h2>
+  
+      <!-- Logo Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 items-center">
+        
+        <img src="https://via.placeholder.com/150x50?text=Logo+1" alt="Company 1" 
+             class="mx-auto grayscale opacity-60 hover:opacity-100 transition duration-300">
+        
+        <img src="https://via.placeholder.com/150x50?text=Logo+2" alt="Company 2" 
+             class="mx-auto grayscale opacity-60 hover:opacity-100 transition duration-300">
+        
+        <img src="https://via.placeholder.com/150x50?text=Logo+3" alt="Company 3" 
+             class="mx-auto grayscale opacity-60 hover:opacity-100 transition duration-300">
+        
+        <img src="https://via.placeholder.com/150x50?text=Logo+4" alt="Company 4" 
+             class="mx-auto grayscale opacity-60 hover:opacity-100 transition duration-300">
+        
+        <img src="https://via.placeholder.com/150x50?text=Logo+5" alt="Company 5" 
+             class="mx-auto grayscale opacity-60 hover:opacity-100 transition duration-300">
+      
+      </div>
+  
+    </div>
+  </section>
+  
+  <!-- Features Section -->
+<section id="features" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-800">Our Features</h2>
+        <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+          Explore the amazing features that make our platform stand out from the rest.
+        </p>
+      </div>
+  
+      <!-- Features Grid -->
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        
+        <!-- Feature 1 -->
+        <div class="bg-white rounded-xl shadow-md p-6 text-center hover:-translate-y-2 transform transition">
+          <i class="fas fa-bolt text-blue-500 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Faster Performance</h3>
+          <p class="text-gray-600">Experience furious fast speed with our optimized platform.</p>
+        </div>
+  
+        <!-- Feature 2 -->
+        <div class="bg-white rounded-xl shadow-md p-6 text-center hover:-translate-y-2 transform transition">
+          <i class="fas fa-lock text-green-500 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Secure</h3>
+          <p class="text-gray-600">Your data is protected with top-grade security protocols.</p>
+        </div>
+  
+        <!-- Feature 3 -->
+        <div class="bg-white rounded-xl shadow-md p-6 text-center hover:-translate-y-2 transform transition">
+          <i class="fas fa-sync-alt text-purple-500 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Seamless Updates</h3>
+          <p class="text-gray-600">Get automatic updates without interruptions or downtime.</p>
+        </div>
+  
+        <!-- Feature 4 -->
+        <div class="bg-white rounded-xl shadow-md p-6 text-center hover:-translate-y-2 transform transition">
+          <i class="fas fa-users text-pink-500 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Community Support</h3>
+          <p class="text-gray-600">Join a vibrant community ready to help you succeed.</p>
+        </div>
+  
+        <!-- Feature 5 -->
+        <div class="bg-white rounded-xl shadow-md p-6 text-center hover:-translate-y-2 transform transition">
+          <i class="fas fa-chart-line text-yellow-500 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Analytics</h3>
+          <p class="text-gray-600">Track and analyze performance with powerful tools.</p>
+        </div>
+  
+        <!-- Feature 6 -->
+        <div class="bg-white rounded-xl shadow-md p-6 text-center hover:-translate-y-2 transform transition">
+          <i class="fas fa-mobile-alt text-red-500 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Mobile Friendly</h3>
+          <p class="text-gray-600">Enjoy a seamless experience on any device, anywhere.</p>
+        </div>
+  
+      </div>
+  
+    </div>
+  </section>
+ <!-- Stats Section -->
+<section class="bg-gray-50 py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        
+        <!-- Customers -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+          <h3 class="text-4xl font-bold text-blue-600 counter" data-target="10000" data-suffix="+">0</h3>
+          <p class="mt-2 text-gray-600">Happy Customers</p>
+        </div>
+  
+        <!-- Countries -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+          <h3 class="text-4xl font-bold text-green-600 counter" data-target="50" data-suffix="+">0</h3>
+          <p class="mt-2 text-gray-600">Countries Served</p>
+        </div>
+  
+        <!-- Uptime -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+          <h3 class="text-4xl font-bold text-purple-600 counter" data-target="99.9" data-suffix="%">0</h3>
+          <p class="mt-2 text-gray-600">Uptime Guarantee</p>
+        </div>
+  
+        <!-- Support -->
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+          <h3 class="text-4xl font-bold text-pink-600 counter" data-target="24" data-suffix="/7">0</h3>
+          <p class="mt-2 text-gray-600">Customer Support</p>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  <!-- Counter Script -->
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".counter");
+  
+    const animateCounter = (counter) => {
+      const target = +counter.getAttribute("data-target");
+      const suffix = counter.getAttribute("data-suffix") || "";
+      let count = 0;
+      const increment = target / 200; // Speed control
+  
+      const updateCounter = () => {
+        count += increment;
+        if (count < target) {
+          counter.textContent = Math.floor(count);
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = (target % 1 !== 0 ? target.toFixed(1) : target) + suffix;
+        }
+      };
+      updateCounter();
+    };
+  
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+  
+    counters.forEach(counter => observer.observe(counter));
+  });
+  </script>
+  
+  <!-- How It Works Section -->
+  <section class="py-20 px-6 bg-gray-50">
+    <div class="container mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">How It Works</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Get started in just a few simple steps.</p>
+        </div>
+        
+        <div class="flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="How It Works" class="rounded-lg shadow-lg">
+            </div>
+            
+            <div class="md:w-1/2 md:pl-12">
+                <div class="flex mb-8">
+                    <div class="flex-shrink-0">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-indigo-100 text-indigo-600 font-bold text-xl">1</div>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-xl font-bold mb-2">Sign Up</h3>
+                        <p class="text-gray-600">Create your free account in less than a minute. No credit card required.</p>
+                    </div>
+                </div>
+                
+                <div class="flex mb-8">
+                    <div class="flex-shrink-0">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-indigo-100 text-indigo-600 font-bold text-xl">2</div>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-xl font-bold mb-2">Choose a Template</h3>
+                        <p class="text-gray-600">Select from our collection of professionally designed templates.</p>
+                    </div>
+                </div>
+                
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-indigo-100 text-indigo-600 font-bold text-xl">3</div>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-xl font-bold mb-2">Customize & Publish</h3>
+                        <p class="text-gray-600">Make it your own with our easy editor and publish instantly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Section -->
+<section id="pricing" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-800">Pricing Plans</h2>
+        <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+          Choose the plan that fits your needs. No hidden fees, cancel anytime.
+        </p>
+      </div>
+  
+      <!-- Pricing Grid -->
+      <div class="grid gap-8 md:grid-cols-3">
+        
+        <!-- Basic Plan -->
+        <div class="border rounded-xl shadow-sm p-8 text-center hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold mb-4">Basic</h3>
+          <p class="text-4xl font-bold mb-4">$9<span class="text-lg text-gray-500">/mo</span></p>
+          <ul class="text-gray-600 mb-6 space-y-2">
+            <li>✔ Access to basic features</li>
+            <li>✔ Email support</li>
+            <li>✘ No advanced analytics</li>
+          </ul>
+          <a href="#" class="inline-block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Get Started</a>
+        </div>
+  
+        <!-- Popular Plan -->
+        <div class="border-2 border-blue-600 rounded-xl shadow-md p-8 text-center hover:shadow-lg transition bg-blue-50">
+          <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Most Popular</span>
+          <h3 class="text-xl font-semibold mt-4 mb-4">Pro</h3>
+          <p class="text-4xl font-bold mb-4">$29<span class="text-lg text-gray-500">/mo</span></p>
+          <ul class="text-gray-600 mb-6 space-y-2">
+            <li>✔ All basic features</li>
+            <li>✔ Advanced analytics</li>
+            <li>✔ Priority support</li>
+          </ul>
+          <a href="#" class="inline-block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Get Started</a>
+        </div>
+  
+        <!-- Premium Plan -->
+        <div class="border rounded-xl shadow-sm p-8 text-center hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold mb-4">Premium</h3>
+          <p class="text-4xl font-bold mb-4">$49<span class="text-lg text-gray-500">/mo</span></p>
+          <ul class="text-gray-600 mb-6 space-y-2">
+            <li>✔ Everything in Pro</li>
+            <li>✔ Dedicated account manager</li>
+            <li>✔ Custom integrations</li>
+          </ul>
+          <a href="#" class="inline-block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Get Started</a>
+        </div>
+  
+      </div>
+  
+    </div>
+  </section>
+    <!-- Testimonial Section -->
+<section id="testimonial" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-800">What Our Customers Say</h2>
+        <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+          Hear from real people who love using our product every day.
+        </p>
+      </div>
+  
+      <!-- Testimonial Grid -->
+      <div class="grid gap-8 md:grid-cols-3">
+        
+        <!-- Testimonial 1 -->
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+          <i class="fas fa-quote-left text-blue-600 text-3xl mb-4"></i>
+          <p class="text-gray-600 mb-6">
+            This product has completely transformed my workflow. Highly recommended for anyone!
+          </p>
+          <div class="flex items-center space-x-4">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="w-12 h-12 rounded-full">
+            <div>
+              <h4 class="font-semibold text-gray-800">Emily Carter</h4>
+              <p class="text-sm text-gray-500">Marketing Manager</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Testimonial 2 -->
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+          <i class="fas fa-quote-left text-blue-600 text-3xl mb-4"></i>
+          <p class="text-gray-600 mb-6">
+            The support team is fantastic! They helped me set everything up in no time.
+          </p>
+          <div class="flex items-center space-x-4">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="w-12 h-12 rounded-full">
+            <div>
+              <h4 class="font-semibold text-gray-800">Michael Brown</h4>
+              <p class="text-sm text-gray-500">Software Developer</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Testimonial 3 -->
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+          <i class="fas fa-quote-left text-blue-600 text-3xl mb-4"></i>
+          <p class="text-gray-600 mb-6">
+            I’ve tried many tools before, but this one is by far the best. Clean, fast, and reliable.
+          </p>
+          <div class="flex items-center space-x-4">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="User" class="w-12 h-12 rounded-full">
+            <div>
+              <h4 class="font-semibold text-gray-800">Sophia Martinez</h4>
+              <p class="text-sm text-gray-500">Entrepreneur</p>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+  
+    </div>
+  </section>
+<!-- Contact Section -->
+<section id="contact" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-800">Contact Us</h2>
+        <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+          Have any questions or feedback? We'd love to hear that.
+        </p>
+      </div>
+  
+      <!-- Contact Grid -->
+      <div class="grid gap-8 md:grid-cols-2">
+  
+        <!-- Contact Info -->
+        <div class="space-y-6">
+          <div class="flex items-center space-x-4">
+            <i class="fas fa-map-marker-alt text-blue-600 text-xl"></i>
+            <span class="text-gray-700">123 Main Street, New York, NY 10001</span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <i class="fas fa-envelope text-blue-600 text-xl"></i>
+            <span class="text-gray-700">brand@example.com</span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <i class="fas fa-phone-alt text-blue-600 text-xl"></i>
+            <span class="text-gray-700">+1 (234) 567-890</span>
+          </div>
+        </div>
+  
+        <!-- Contact Form -->
+        <form action="#" method="POST" class="bg-gray-50 p-6 rounded-xl shadow space-y-4">
+          <div>
+            <label for="name" class="block text-gray-700 font-semibold mb-2">Name</label>
+            <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500" required>
+          </div>
+          <div>
+            <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
+            <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500" required>
+          </div>
+          <div>
+            <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
+            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500" required></textarea>
+          </div>
+          <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+            Send Message
+          </button>
+        </form>
+  
+      </div>
+  
+    </div>
+  </section>
+  <!-- CTA Section -->
+<section class="bg-gradient-to-r from-blue-600 to-purple-600 py-16 text-white text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+        Ready to Get Started?
+      </h2>
+      <p class="text-lg mb-8">
+        Join thousands of businesses already growing with us. Sign up today and unlock your full potential.
+      </p>
+      <a href="#pricing"
+         class="inline-block bg-white text-blue-700 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition duration-300">
+        Get Started Now
+      </a>
+    </div>
+  </section>
+ 
+  <!-- FAQ Section -->
+<section class="bg-gray-50 py-16" id="faq">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+      
+      <div class="space-y-4">
+  
+        <!-- FAQ Item -->
+        <div class="bg-white rounded-lg shadow">
+          <button class="w-full flex justify-between items-center p-4 text-left focus:outline-none faq-toggle">
+            <span class="font-medium text-lg">What services do you offer?</span>
+            <i class="fas fa-chevron-down transition-transform"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden px-4 transition-all duration-300">
+            <p class="py-2 text-gray-600">We offer a complete suite of business solutions, including hosting, analytics, and 24/7 customer support.</p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item -->
+        <div class="bg-white rounded-lg shadow">
+          <button class="w-full flex justify-between items-center p-4 text-left focus:outline-none faq-toggle">
+            <span class="font-medium text-lg">Do you have a free trial?</span>
+            <i class="fas fa-chevron-down transition-transform"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden px-4 transition-all duration-300">
+            <p class="py-2 text-gray-600">Yes! We offer a 14-day free trial so you can experience our services risk-free.</p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item -->
+        <div class="bg-white rounded-lg shadow">
+          <button class="w-full flex justify-between items-center p-4 text-left focus:outline-none faq-toggle">
+            <span class="font-medium text-lg">Can I cancel anytime?</span>
+            <i class="fas fa-chevron-down transition-transform"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden px-4 transition-all duration-300">
+            <p class="py-2 text-gray-600">Absolutely! There are no long-term contracts, and you can cancel your subscription anytime.</p>
+          </div>
+        </div>
+  
+        <!-- FAQ Item -->
+        <div class="bg-white rounded-lg shadow">
+          <button class="w-full flex justify-between items-center p-4 text-left focus:outline-none faq-toggle">
+            <span class="font-medium text-lg">Is customer support available 24/7?</span>
+            <i class="fas fa-chevron-down transition-transform"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden px-4 transition-all duration-300">
+            <p class="py-2 text-gray-600">Yes, our support team is available around the clock to assist you whenever you need.</p>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ Toggle Script -->
+  <script>
+  document.querySelectorAll(".faq-toggle").forEach((button) => {
+    button.addEventListener("click", () => {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector("i");
+  
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+        icon.style.transform = "rotate(0deg)";
+      } else {
+        document.querySelectorAll(".faq-content").forEach((item) => item.style.maxHeight = null);
+        document.querySelectorAll(".faq-toggle i").forEach((i) => i.style.transform = "rotate(0deg)");
+        content.style.maxHeight = content.scrollHeight + "px";
+        icon.style.transform = "rotate(180deg)";
+      }
+    });
+  });
+  </script>
+  
+ <!-- Footer -->
+ <footer class="bg-gray-900 text-white py-12 px-6">
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <div class="text-2xl font-bold text-white mb-4">Brand</div>
+                <p class="text-gray-400 mb-4">Building the future of web development with innovative solutions.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-bold mb-4">Product</h3>
+                <ul class="space-y-2">
+                    <li><a href="#features" class="text-gray-400 hover:text-white transition">Features</a></li>
+                    <li><a href="#pricing" class="text-gray-400 hover:text-white transition">Pricing</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Templates</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Integrations</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-bold mb-4">Resources</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Guides</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Help Center</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Webinars</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-bold mb-4">Company</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Careers</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Press</a></li>
+                    <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 mb-4 md:mb-0">© 2025 Brand. All rights reserved.</p>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                <a href="#" class="text-gray-400 hover:text-white transition">Cookie Policy</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="back-to-top" class="fixed bottom-8 right-8 bg-indigo-600 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all">
+    <i class="fas fa-arrow-up"></i>
+</button>
+</body>
+</html>
